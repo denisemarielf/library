@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer> </script>
+    <title>Library</title>
+</head>
+<body>
+    <header>
+        <h1>MY LIBRARY</h1>
+        <button id="add-book-button">Add new book</button>
+    </header>
+    <main>
+        <div id="form-container">
+            <form name="book-form">
+                <ul>
+                    <li>
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" name=title>
+                    </li>
+                    <li>
+                        <label for="author">Author:</label>
+                        <input type="text" id="author" name=author>
+                    </li>
+                    <li>
+                        <label for="pages">Number of pages:</label>
+                        <input type="number" id="pages" name=pages>
+                    </li>
+                    <li>
+                        <p>Status:</p>
+                        <input type="radio" id="read" name="read-or-not-read" value="read">
+                        <label for="read">Read</label>
+                        <input type="radio" id="not-read" name="read-or-not-read" value="not read">
+                        <label for="not-read">Not read</label>
+                    </li>
+                    <button type="button" id="submit">Submit</button>
+                    <button type="return" id= "return">Return</button>
+                </ul>
+            </form>
+        </div>
+        <div id="books-container">
+            <div id="book">
+                <p id="book-title">Title: </p>
+                <p id="book-author">Author:</p>
+                <p id="book-pages">Pages:</p>
+                <p id="book-status">Status:</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p></p>
+    </footer>
+</body>
+</html>
