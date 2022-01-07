@@ -8,7 +8,7 @@ const readButton = document.createElement('button')
 
 
 
-let myLibrary = [new Book("fdsfdsf", "juancito", 1545, "Read")];
+let myLibrary = [new Book("Pride and Prejudice", "Jane Austen", 384, "Read")];
 
 function Book(title, author, pages, status) {
   this.title = title
@@ -18,8 +18,7 @@ function Book(title, author, pages, status) {
 }
 
 Book.prototype.info = function () {
-      
-      return "Title: " + this.title + "<br/>Author: " + this.author + "<br/>Pages: " + this.pages+ "<br/>Status: "
+      return this.title + "<br/>Author: " + this.author + "<br/>Pages: " + this.pages;
       
   }
 
@@ -39,15 +38,16 @@ function displayBooks(){
   myLibrary.forEach(function (book) {
     bookCard.innerHTML = book.info();
     bookCard.appendChild(readButton)
-    readButton.innerHTML = book.status;
+    readButton.innerHTML = "Status: " + book.status;
+    readButton.classList.add('status-button')
     readButton.addEventListener('click', function(){
       if(book.status === "Read") {
         book.status = "Not read";
-        readButton.innerHTML = book.status;
+        readButton.innerHTML = "Status: " + book.status;
 
       } else if (book.status === "Not read"){
         book.status = "Read";
-        readButton.innerHTML = book.status;
+        readButton.innerHTML ="Status: " + book.status;
 
       }
   })
@@ -61,12 +61,9 @@ function displayBooks(){
   console.log(books)
 
   books.forEach(function (book) {
-    
-    /*readButton.innerHTML = 'Change status'
-    */
-
     book.appendChild(removeButton)
-    removeButton.innerHTML = 'Remove'
+    removeButton.innerHTML = '❌'
+    removeButton.classList.add('remove-button')
     removeButton.addEventListener('click', function(){
     this.parentNode.remove();
     })
@@ -91,5 +88,5 @@ submitButton.addEventListener('click', function(){
 addBookButton.addEventListener('click', function(){
   formContainer.classList.add('show')
 })
-
+console.log(myLibrary)
 displayBooks();
