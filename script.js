@@ -1,7 +1,12 @@
 const booksContainer = document.getElementById("books-container");
 const textnode = document.createTextNode('fnsj');
 const submitButton = document.getElementById('submit')
-const AddBookButton = document.getElementById('add-book-button')
+const addBookButton = document.getElementById('add-book-button')
+const formContainer = document.getElementById('form-container')
+const readButton = document.createElement('button')
+
+
+
 
 let myLibrary = [new Book("fdsfdsf", "juancito", 1545, "Read")];
 
@@ -13,7 +18,9 @@ function Book(title, author, pages, status) {
 }
 
 Book.prototype.info = function () {
-      return this.title + this.author + this.pages + this.status;
+      
+      return "Title: " + this.title + "<br/>Author: " + this.author + "<br/>Pages: " + this.pages+ "<br/>Status: "
+      
   }
 
 
@@ -23,18 +30,51 @@ function addBookToLibrary(titleInput, authorInput, pagesInput, statusInput) {
 }
 
 function displayBooks(){
-  const bookTitle = document.getElementById('book-title')
-  const bookAuthor = document.getElementById('book-author')
-  const bookPages = document.getElementById('book-pages')
-  const bookStatus = document.getElementById('book-status')
   const bookCard = document.createElement('div');
+  const readButton = document.createElement('button')
+  const removeButton = document.createElement('button')
+  
   bookCard.classList.add('book-card');
+
   myLibrary.forEach(function (book) {
     bookCard.innerHTML = book.info();
-    console.log(book.info())
+    bookCard.appendChild(readButton)
+    readButton.innerHTML = book.status;
+    readButton.addEventListener('click', function(){
+      if(book.status === "Read") {
+        book.status = "Not read";
+        readButton.innerHTML = book.status;
+
+      } else if (book.status === "Not read"){
+        book.status = "Read";
+        readButton.innerHTML = book.status;
+
+      }
   })
+
+    })
+  
+  
   booksContainer.appendChild(bookCard);
+  
+  const books = booksContainer.querySelectorAll('.book-card');
+  console.log(books)
+
+  books.forEach(function (book) {
+    
+    /*readButton.innerHTML = 'Change status'
+    */
+
+    book.appendChild(removeButton)
+    removeButton.innerHTML = 'Remove'
+    removeButton.addEventListener('click', function(){
+    this.parentNode.remove();
+    })
+  })
+
+  
 }
+
 
 
 submitButton.addEventListener('click', function(){
@@ -44,13 +84,12 @@ submitButton.addEventListener('click', function(){
   const statusInput = document.querySelector('input[name="read-or-not-read"]:checked').value;
   addBookToLibrary(titleInput, authorInput, pagesInput, statusInput)
   displayBooks();
-  /*const bookCard = document.createElement('div');
-  bookCard.classList.add('book-card');
-  booksContainer.appendChild(bookCard);
-  console.log(myLibrary)*/
+  formContainer.classList.remove('show')
+  
 })
 
-//addBookToLibrary();
-displayBooks();
-//console.log(myLibrary[0].info())
+addBookButton.addEventListener('click', function(){
+  formContainer.classList.add('show')
+})
 
+displayBooks();

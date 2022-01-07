@@ -14,11 +14,14 @@
 <body>
     <header>
         <h1>MY LIBRARY</h1>
-        <button id="add-book-button">Add new book</button>
+        
     </header>
     <main>
+        
+        <div id="form-background">
         <div id="form-container">
-            <form name="book-form">
+            <form id="form" name="book-form">
+                <h2>Add a new book</h2>
                 <ul>
                     <li>
                         <label for="title">Title:</label>
@@ -34,9 +37,9 @@
                     </li>
                     <li>
                         <p>Status:</p>
-                        <input type="radio" id="read" name="read-or-not-read" value="read">
+                        <input type="radio" id="read" name="read-or-not-read" value="Read">
                         <label for="read">Read</label>
-                        <input type="radio" id="not-read" name="read-or-not-read" value="not read">
+                        <input type="radio" id="not-read" name="read-or-not-read" value="Not read">
                         <label for="not-read">Not read</label>
                     </li>
                     <button type="button" id="submit">Submit</button>
@@ -44,13 +47,9 @@
                 </ul>
             </form>
         </div>
+    </div>
         <div id="books-container">
-            <div id="book">
-                <p id="book-title">Title: </p>
-                <p id="book-author">Author:</p>
-                <p id="book-pages">Pages:</p>
-                <p id="book-status">Status:</p>
-            </div>
+            <button id="add-book-button">Add new book</button>
         </div>
     </main>
     <footer>
