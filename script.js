@@ -5,24 +5,23 @@ const addBookButton = document.getElementById('add-book-button')
 const formContainer = document.getElementById('form-container')
 const readButton = document.createElement('button')
 
-
-
-
-let myLibrary = [new Book("Pride and Prejudice", "Jane Austen", 384, "Read")];
-
-function Book(title, author, pages, status) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  this.status = status
-}
-
-Book.prototype.info = function () {
-      return this.title + "<br/>Author: " + this.author + "<br/>Pages: " + this.pages;
-      
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.status = status;
   }
 
-
+  get info() {
+    return this.info();
+  }
+  
+  info() {
+    return this.title + "<br/>Author: " + this.author + "<br/>Pages: " + this.pages;
+  }
+}
+let myLibrary = [new Book("Pride and Prejudice", "Jane Austen", 384, "Read")];
 
 function addBookToLibrary(titleInput, authorInput, pagesInput, statusInput) {
   myLibrary.push(new Book(titleInput, authorInput, pagesInput, statusInput))
