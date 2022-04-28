@@ -1,60 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer> </script>
-    <title>Library</title>  
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <title>Library</title>
+  </head>
+  <body>
     <header>
-        <h1>MY LIBRARY</h1>
-        <div id="button-container">
-            <button id="add-book-button">+</button>
-        </div>
+      <h1>MY LIBRARY</h1>
+      <div id="button-container">
+        <button id="add-book-button">+</button>
+      </div>
     </header>
-    
-    <main>
-        
-        <div id="form-background">
-        <div id="form-container">
-            <form id="form" name="book-form">
-                <h2>Add a new book</h2>
-                <ul>
-                    <li>
-                        <label for="title">Title:</label>
-                        <input type="text" id="title" name=title>
-                    </li>
-                    <li>
-                        <label for="author">Author:</label>
-                        <input type="text" id="author" name=author>
-                    </li>
-                    <li>
-                        <label for="pages">Number of pages:</label>
-                        <input type="number" id="pages" name=pages>
-                    </li>
-                    <li>
-                        <p>Status:</p>
-                        <input type="radio" id="read" name="read-or-not-read" value="Read">
-                        <label for="read" id="read-txt">Read</label>
-                        <input type="radio" id="not-read" name="read-or-not-read" value="Not read">
-                        <label for="not-read" >Not read</label>
-                    </li>
-                    <button type="button" id="submit">Submit</button>
-                    <button type="return" id= "return">Return</button>
-                </ul>
-            </form>
-        </div>
-    </div>
-        <div id="books-container">
-            
-        </div>
-    </main>
 
-</body>
+    <main>
+      <div id="form-background">
+        <div id="form-container">
+          <form id="form" name="book-form">
+            <h2>Add a new book</h2>
+            <ul>
+              <li>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required />
+              </li>
+              <li>
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required />
+              </li>
+              <li>
+                <label for="pages">Number of pages:</label>
+                <input type="number" id="pages" name="pages" required />
+              </li>
+              <li>
+                <p>Status:</p>
+                <input
+                  type="radio"
+                  id="read"
+                  name="read-or-not-read"
+                  value="Read"
+                  required
+                />
+                <label for="read" id="read-txt">Read</label>
+                <input
+                  type="radio"
+                  id="not-read"
+                  name="read-or-not-read"
+                  value="Not read"
+                  required
+                />
+                <label for="not-read">Not read</label>
+              </li>
+              <span id="error-message"></span>
+              <button type="submit" id="submit">Submit</button>
+              <button id="return">Return</button>
+            </ul>
+          </form>
+        </div>
+      </div>
+      <div id="books-container"></div>
+    </main>
+  </body>
 </html>
